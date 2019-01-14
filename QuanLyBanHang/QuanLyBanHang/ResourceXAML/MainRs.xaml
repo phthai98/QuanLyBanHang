@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodel="clr-namespace:QuanLyBanHang.ViewModel">
+    <viewmodel:NhaCungCapVM x:Key="NhaCungCapVM"></viewmodel:NhaCungCapVM>
+    <viewmodel:NguoiDungVM x:Key="NguoiDungVM"></viewmodel:NguoiDungVM>
+    <viewmodel:NhapHangVM x:Key="NhapHangVM"></viewmodel:NhapHangVM>
+    <viewmodel:SanPhamVM x:Key="SanPhamVM"></viewmodel:SanPhamVM>
+</ResourceDictionary>
