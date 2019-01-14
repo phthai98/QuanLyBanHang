@@ -19,9 +19,10 @@ namespace QuanLyBanHang
     /// </summary>
     public partial class Login : Window
     {
-        private string Username;
-        private string Password;
+        public string Username;
+        public string Password;
 
+        public static bool isAdmin = false;
 
         public Login()
         {
@@ -53,16 +54,23 @@ namespace QuanLyBanHang
             Username = txtUser.Text;
             Password = txtPass.Password.ToString();
 
-            var accCount = Model.DataProvider.Ins.DB.NguoiDungs.Where(x => x.TaiKhoan == Username && x.MatKhau == Password).Count();
-
+            var accCount = Model.DataProvider.Ins.DB.NguoiDungs.Where(x => x.TaiKhoan == Username && x.MatKhau == Password);
 
             if ("" == Username || "" == Password)
             {
                 MessageBox.Show("Chưa nhập username hoặc password.", "Login");
             }
-            else if (accCount > 0)
+            else if (accCount.Count() > 0)
             {
                 MessageBox.Show("Đăng nhập thành công.", "Login");
+
+                //Lưu lại thông tin user
+                int value = (int)accCount.First().QuyenNguoiDung;
+
+                if (value == 1)
+                {
+                    isAdmin = true;
+                }
 
                 MainWindow main = new MainWindow();
 

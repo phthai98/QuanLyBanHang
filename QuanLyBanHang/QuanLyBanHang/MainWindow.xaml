@@ -68,17 +68,17 @@
                         </Grid>
                     </Button>
 
-                    <Button Margin="10" Background="#FF2458D8" BorderBrush="#FF1F399F" Height="45" Click="Button_Click_3">
-                        <Grid Width="130">
-                            <materialDesign:PackIcon Kind="Calculator" VerticalAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Center" Text="THỐNG KÊ" FontFamily="Champagne &amp; Limousines"/>
-                        </Grid>
-                    </Button>
-
                     <Button Margin="10" Background="#FF2458D8" BorderBrush="#FF1F399F" Height="45" Click="Button_Click_4">
                         <Grid Width="120">
                             <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center"/>
                             <TextBlock HorizontalAlignment="Center" Text="NGƯỜI DÙNG" FontFamily="Champagne &amp; Limousines"/>
+                        </Grid>
+                    </Button>
+
+                    <Button Margin="10" Background="#FF2458D8" BorderBrush="#FF1F399F" Height="45" Click="Button_Click_3">
+                        <Grid Width="130">
+                            <materialDesign:PackIcon Kind="Calculator" VerticalAlignment="Center"/>
+                            <TextBlock HorizontalAlignment="Center" Text="ĐĂNG XUẤT" FontFamily="Champagne &amp; Limousines"/>
                         </Grid>
                     </Button>
                 </StackPanel>

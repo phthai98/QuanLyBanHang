@@ -44,7 +44,10 @@ namespace QuanLyBanHang
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Login window = new Login();
+            window.Show();
+            this.Close();
+            QuanLyBanHang.Login.isAdmin = false;
         }
 
         private void GridIconBar_MouseDown(object sender, MouseButtonEventArgs e)
@@ -132,48 +135,86 @@ namespace QuanLyBanHang
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NhapHang nhapHang = new NhapHang();
-            nhapHang.Show();
-            this.Close();
+            if (QuanLyBanHang.Login.isAdmin == true)
+            {
+                NhapHang nhapHang = new NhapHang();
+                nhapHang.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Đây là mục của Admin", "Thông báo");
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            XemKhoHang xemKhoHang = new XemKhoHang();
-            xemKhoHang.Show();
-            this.Close();
+            if (QuanLyBanHang.Login.isAdmin == true)
+            {
+                XemKhoHang xemKhoHang = new XemKhoHang();
+                xemKhoHang.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Đây là mục của Admin", "Thông báo");
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            NhaCungCap window = new NhaCungCap();
-            window.Show();
-            this.Close();
+            if (QuanLyBanHang.Login.isAdmin == true)
+            {
+                NhaCungCap window = new NhaCungCap();
+                window.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Đây là mục của Admin", "Thông báo");
+            }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            ThongKe window = new ThongKe();
+            Login window = new Login();
             window.Show();
             this.Close();
+            QuanLyBanHang.Login.isAdmin = false;
+
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            NguoiDung window = new NguoiDung();
-            window.Show();
-            this.Close();
+            if (QuanLyBanHang.Login.isAdmin == true)
+            {
+                NguoiDung window = new NguoiDung();
+                window.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Đây là mục của Admin", "Thông báo");
+            }
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            SanPham window = new SanPham();
-            window.Show();
-            this.Close();
+            if (QuanLyBanHang.Login.isAdmin == true)
+            {
+                SanPham window = new SanPham();
+                window.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Đây là mục của Admin", "Thông báo");
+            }
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
+
 
             ngayxuat = NgayXuat.SelectedDate;
 
@@ -189,146 +230,10 @@ namespace QuanLyBanHang
             {
                 MessageBox.Show("Tồn tại giá trị rỗng.", "Thông báo");
             }
+
         }
 
-        public class MainViewModel2 : BaseViewModel
-        {
-            private ObservableCollection<Model.NguoiDung> _List;
-            public ObservableCollection<Model.NguoiDung> List { get { return _List; } set { _List = value; OnPropertyChanged(); } }
 
-            private ObservableCollection<Model.QuyenNguoiDung> _Quyen;
-            public ObservableCollection<Model.QuyenNguoiDung> Quyen { get { return _Quyen; } set { _Quyen = value; OnPropertyChanged(); } }
-
-            private Model.NguoiDung _SelectedItem;
-            public Model.NguoiDung SelectedItem
-            {
-                get
-                {
-                    return _SelectedItem;
-                }
-                set
-                {
-                    _SelectedItem = value;
-                    OnPropertyChanged();
-                    if (SelectedItem != null)
-                    {
-                        Ten = SelectedItem.Ten;
-                        TaiKhoan = SelectedItem.TaiKhoan;
-                        MatKhau = SelectedItem.MatKhau;
-                        SelectedQuyen = SelectedItem.QuyenNguoiDung1;
-                    }
-                }
-            }
-
-            private Model.QuyenNguoiDung _SelectedQuyen;
-            public Model.QuyenNguoiDung SelectedQuyen
-            {
-                get
-                {
-                    return _SelectedQuyen;
-                }
-                set
-                {
-                    _SelectedQuyen = value;
-                    OnPropertyChanged();
-                }
-            }
-
-            private string _Ten;
-            public string Ten { get { return _Ten; } set { _Ten = value; OnPropertyChanged(); } }
-
-            private string _TaiKhoan;
-            public string TaiKhoan { get { return _TaiKhoan; } set { _TaiKhoan = value; OnPropertyChanged(); } }
-
-
-            private string _MatKhau;
-            public string MatKhau { get { return _MatKhau; } set { _MatKhau = value; OnPropertyChanged(); } }
-
-
-            private bool _Xoa;
-            public bool Xoa { get { return _Xoa; } set { _Xoa = value; OnPropertyChanged(); } }
-
-
-            private DateTime? _NgayHopTac;
-            public DateTime? NgayHopTac { get { return _NgayHopTac; } set { _NgayHopTac = value; OnPropertyChanged(); } }
-
-
-            public ICommand AddCommand { get; set; }
-            public ICommand EditCommand { get; set; }
-
-            public ICommand DeleteCommand { get; set; }
-
-            public MainViewModel2()
-            {
-                List = new ObservableCollection<Model.NguoiDung>(Model.DataProvider.Ins.DB.NguoiDungs);
-                Quyen = new ObservableCollection<Model.QuyenNguoiDung>(Model.DataProvider.Ins.DB.QuyenNguoiDungs);
-
-                AddCommand = new RelayCommand<object>((p) =>
-                {
-                    if (SelectedQuyen == null)
-                        return false;
-                    return true;
-
-                }, (p) =>
-                {
-                    var NguoiDung = new Model.NguoiDung() { Ten = Ten, TaiKhoan = TaiKhoan, MatKhau = MatKhau, QuyenNguoiDung = SelectedQuyen.Id };
-
-                    Model.DataProvider.Ins.DB.NguoiDungs.Add(NguoiDung);
-                    Model.DataProvider.Ins.DB.SaveChanges();
-                    List.Add(NguoiDung);
-
-                });
-
-                EditCommand = new RelayCommand<object>((p) =>
-                {
-                    if (SelectedItem == null || SelectedQuyen == null)
-                        return false;
-
-                    var displayList = Model.DataProvider.Ins.DB.NguoiDungs.Where(x => x.Id == SelectedItem.Id);
-                    if (displayList != null && displayList.Count() != 0)
-                        return true;
-
-                    return false;
-
-                }, (p) =>
-                {
-                    var NguoiDung = Model.DataProvider.Ins.DB.NguoiDungs.Where(x => x.Id == SelectedItem.Id).SingleOrDefault();
-                    NguoiDung.Ten = Ten;
-                    NguoiDung.TaiKhoan = TaiKhoan;
-                    NguoiDung.MatKhau = MatKhau;
-                    NguoiDung.QuyenNguoiDung = SelectedQuyen.Id;
-
-                    Model.DataProvider.Ins.DB.SaveChanges();
-
-                    SelectedItem.Ten = Ten;
-                });
-
-                DeleteCommand = new RelayCommand<object>((p) =>
-                {
-                    if (SelectedItem == null || SelectedQuyen == null)
-                        return false;
-
-                    var displayList = Model.DataProvider.Ins.DB.NguoiDungs.Where(x => x.Id == SelectedItem.Id);
-                    if (displayList != null && displayList.Count() != 0)
-                        return true;
-
-                    return false;
-
-                }, (p) =>
-                {
-                    var NguoiDung = Model.DataProvider.Ins.DB.NguoiDungs.Where(x => x.Id == SelectedItem.Id).SingleOrDefault();
-
-                    Model.DataProvider.Ins.DB.NguoiDungs.Remove(NguoiDung);
-
-                    Model.DataProvider.Ins.DB.SaveChanges();
-
-                    ((ObservableCollection<Model.NguoiDung>)List).Remove(NguoiDung);
-                    ((ObservableCollection<Model.NguoiDung>)List).Clear();
-                    List = new ObservableCollection<Model.NguoiDung>(Model.DataProvider.Ins.DB.NguoiDungs);
-                    _SelectedItem = null;
-                });
-            }
-        }
 
         private void Button_Click_7(object sender, RoutedEventArgs e)
         {
@@ -494,7 +399,7 @@ namespace QuanLyBanHang
                 MessageBox.Show("Không được để trống số điện thoại!", "Thông báo");
                 return;
             }
-            TenKH2.Text = "Khách hàng\n" + TenKH.Text;
+            TenKH2.Text = TenKH.Text;
             themKhachHang = true;
         }
     }

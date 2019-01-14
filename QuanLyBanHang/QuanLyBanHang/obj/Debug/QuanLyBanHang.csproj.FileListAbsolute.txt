@@ -39,3 +39,6 @@ F:\Laptrinh\LapTrinhWin\CKC#\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang
 F:\Laptrinh\LapTrinhWin\CKC#\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.exe
 F:\Laptrinh\LapTrinhWin\CKC#\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.pdb
 F:\Laptrinh\LapTrinhWin\CKC#\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.csprojResolveAssemblyReference.cache
+F:\QuanLyBanHang\QuanLyBanHang\QuanLyBanHang\bin\Debug\QuanLyBanHang.exe.config
+F:\QuanLyBanHang\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.exe
+F:\QuanLyBanHang\QuanLyBanHang\QuanLyBanHang\obj\Debug\QuanLyBanHang.pdb

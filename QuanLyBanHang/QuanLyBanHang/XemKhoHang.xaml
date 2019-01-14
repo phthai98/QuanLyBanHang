@@ -35,16 +35,22 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="0">
-                        <DatePicker VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" materialDesign:HintAssist.Hint="Ngày bắt đầu" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" FontSize="13" Foreground="Black" />
+                        <Button Style="{StaticResource MaterialDesignRaisedButton}" Margin="5"
+                                            Width="auto"
+                                            Content="Thống kê tồn kho"
+                                            ToolTip="Resource name: MaterialDesignRaisedButton" Click="Button_Click"></Button>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <DatePicker VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" materialDesign:HintAssist.Hint="Ngày kết thúc" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" FontSize="13" Foreground="Black" />
+                        <Button Style="{StaticResource MaterialDesignRaisedButton}" Margin="5"
+                                            Width="auto"
+                                            Content="Thống kê hàng bán chạy"
+                                            ToolTip="Resource name: MaterialDesignRaisedButton" Click="Button_Click_1"></Button>
                     </Grid>
                     <Grid Grid.Column="2">
                         <Button Style="{StaticResource MaterialDesignRaisedButton}" Margin="5"
-                                            Width="100"
-                                            Content="Lọc"
-                                            ToolTip="Resource name: MaterialDesignRaisedButton"></Button>
+                                            Width="auto"
+                                            Content="Thống kê doanh thu"
+                                            ToolTip="Resource name: MaterialDesignRaisedButton" Click="Button_Click_2"></Button>
                     </Grid>
                 </Grid>
 
@@ -58,6 +64,7 @@
                                 <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
                                 <GridViewColumn Header="Tên mặt hàng" DisplayMemberBinding="{Binding sanPham.Ten}"></GridViewColumn>
                                 <GridViewColumn Header="Số lượng tồn" DisplayMemberBinding="{Binding soLuong}"></GridViewColumn>
+                                <GridViewColumn Header="Số đã bán" DisplayMemberBinding="{Binding soDaBan}"></GridViewColumn>
                                 <GridViewColumn Header="Hãng sản xuất" DisplayMemberBinding="{Binding hangSanXuat}"></GridViewColumn>
                                 <GridViewColumn Header="Giá nhập" DisplayMemberBinding="{Binding giaNhapTrungBinh}"></GridViewColumn>
                                 <GridViewColumn Header="Giá bán" DisplayMemberBinding="{Binding giaBanTrungBinh}"></GridViewColumn>

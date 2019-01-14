@@ -20,6 +20,8 @@ namespace QuanLyBanHang
     /// </summary>
     public partial class XemKhoHang : Window
     {
+        public static ObservableCollection<KhoHang> ListKhoHang = new ObservableCollection<KhoHang>();
+
         public class KhoHang
         {
             public Model.SanPham sanPham { get; set; }
@@ -28,6 +30,8 @@ namespace QuanLyBanHang
             public string hangSanXuat { get; set; }
             public int giaNhapTrungBinh { get; set; }
             public int giaBanTrungBinh { get; set; }
+
+            public int soDaBan { get; set; }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -38,8 +42,6 @@ namespace QuanLyBanHang
 
         public ObservableCollection<KhoHang> LoadKhoHang()
         {
-            ObservableCollection<KhoHang> ListKhoHang = new ObservableCollection<KhoHang>();
-
             var objectList = Model.DataProvider.Ins.DB.SanPhams.Where(x => x.Xoa == false);
 
             int i = 1;
@@ -52,6 +54,7 @@ namespace QuanLyBanHang
                 int sumOutput = 0;
                 int giaNhapTrungBinh = 0;
                 int giaBanTrungBinh = 0;
+                int soDaBan = 0;
 
                 if (inputList.Count() > 0)
                 {
@@ -62,11 +65,13 @@ namespace QuanLyBanHang
                 if (outputList.Count() > 0)
                 {
                     sumOutput = (int)outputList.Sum(p => p.SoLuong);
+                    soDaBan = (int)outputList.First().SoLuong;
                 }
 
                 KhoHang khohang = new KhoHang();
                 khohang.STT = i;
                 khohang.soLuong = (sumInput - sumOutput) < 0 ? 0 : sumInput - sumOutput;
+                khohang.soDaBan = soDaBan;
                 khohang.sanPham = item;
                 khohang.hangSanXuat = item.HangSanXuat;
                 khohang.giaNhapTrungBinh = giaNhapTrungBinh;
@@ -115,6 +120,27 @@ namespace QuanLyBanHang
                 WindowState = WindowState.Minimized;
             }
             else WindowState = WindowState.Normal;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BDTonKho window = new BDTonKho();
+            window.Show();
+            this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            BDBanChay window = new BDBanChay();
+            window.Show();
+            this.Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            BDDoanhThu window = new BDDoanhThu();
+            window.Show();
+            this.Close();
         }
     }
 }
