@@ -20,8 +20,8 @@ namespace QuanLyBanHang.Model
             this.ThongTinPhieuNhaps = new HashSet<ThongTinPhieuNhap>();
             this.ThongTinPhieuXuats = new HashSet<ThongTinPhieuXuat>();
         }
-    
-        public string Id { get; set; }
+        private string _Id;
+        public string Id { get { return _Id; } set { _Id = value; OnPropertyChanged(); } }
 
         private string _Ten;
         public string Ten { get { return _Ten; } set { _Ten = value; OnPropertyChanged(); } }

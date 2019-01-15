@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\QuanLyBanHang\QuanLyBanHang\QuanLyBanHang\obj\Debug\
+F:\Laptrinh\LapTrinhWin\CKC#\QuanLyBanHang\QuanLyBanHang\obj\Debug\
 QuanLyBanHang
 none
 false
 DEBUG;TRACE
-F:\QuanLyBanHang\QuanLyBanHang\QuanLyBanHang\App.xaml
+F:\Laptrinh\LapTrinhWin\CKC#\QuanLyBanHang\QuanLyBanHang\App.xaml
 111975168225
 2-1556844510
 361663378798
-23-1961213764
+23230063053
 BDBanChay.xaml;BDDoanhThu.xaml;BDTonKho.xaml;Login.xaml;MainWindow.xaml;NguoiDung.xaml;NhaCungCap.xaml;NhapHang.xaml;ResourceXAML\MainRs.xaml;SanPham.xaml;XemKhoHang.xaml;
 
-True
+False
 

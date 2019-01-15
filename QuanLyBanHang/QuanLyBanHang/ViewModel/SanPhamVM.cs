@@ -83,7 +83,7 @@ namespace QuanLyBanHang.ViewModel
                 var tempID = Guid.NewGuid().ToString();
                 tempID = tempID.Substring(0, 9);
 
-                var SanPham = new Model.SanPham() { Ten = Ten, HinhAnh = HinhAnh, HangSanXuat = HangSanXuat, IdNhaCungCap = SelectedNhaCungCap.Id, Id = tempID };
+                var SanPham = new Model.SanPham() { Ten = Ten, HinhAnh = HinhAnh, HangSanXuat = HangSanXuat, IdNhaCungCap = SelectedNhaCungCap.Id, Id = tempID, Xoa=false };
                 
                 Model.DataProvider.Ins.DB.SanPhams.Add(SanPham);
                 Model.DataProvider.Ins.DB.SaveChanges();

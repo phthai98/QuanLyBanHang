@@ -15,7 +15,8 @@ namespace QuanLyBanHang.Model
     
     public partial class ThongTinPhieuNhap:BaseViewModel
     {
-        public string Id { get; set; }
+        private string _Id;
+        public string Id { get { return _Id; } set { _Id = value; OnPropertyChanged(); } }
 
         private string _IdSanPham;
         public string IdSanPham { get { return _IdSanPham; } set { _IdSanPham = value; OnPropertyChanged(); } }

@@ -9,25 +9,33 @@
 
 namespace QuanLyBanHang.Model
 {
+    using QuanLyBanHang.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class NhaCungCap
+    public partial class NhaCungCap:BaseViewModel
     {
         public NhaCungCap()
         {
             this.SanPhams = new HashSet<SanPham>();
         }
-    
-        public int Id { get; set; }
-        public string Ten { get; set; }
-        public string DiaChi { get; set; }
-        public string DienThoai { get; set; }
-        public string Email { get; set; }
-        public string ThongTin { get; set; }
-        public Nullable<System.DateTime> NgayHopTac { get; set; }
+        private int _Id;
+        public int Id { get { return _Id; } set { _Id = value; OnPropertyChanged(); } }
+        private string _Ten;
+        public string Ten { get { return _Ten; } set { _Ten = value; OnPropertyChanged(); } }
+        private string _DiaChi;
+        public string DiaChi { get { return _DiaChi; } set { _DiaChi = value; OnPropertyChanged(); } }
+        private string _DienThoai;
+        public string DienThoai { get { return _DienThoai; } set { _DienThoai = value; OnPropertyChanged(); } }
+        private string _Email;
+        public string Email { get { return _Email; } set { _Email = value; OnPropertyChanged(); } }
+        private string _ThongTin;
+        public string ThongTin { get { return _ThongTin; } set { _ThongTin = value; OnPropertyChanged(); } }
+        private Nullable<System.DateTime> _NgayHopTac;
+        public Nullable<System.DateTime> NgayHopTac { get { return _NgayHopTac; } set { _NgayHopTac = value; OnPropertyChanged(); } }
         public Nullable<bool> Xoa { get; set; }
-    
-        public virtual ICollection<SanPham> SanPhams { get; set; }
+
+        private ICollection<SanPham> _SanPhams;
+        public virtual ICollection<SanPham> SanPhams { get { return _SanPhams; } set { _SanPhams = value; OnPropertyChanged(); } }
     }
 }
